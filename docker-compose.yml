@@ -1,10 +1,12 @@
 version: "3.8" 
 
-#volumes:
-#	db_volume:
+volumes:
+        db_volume:
+                name: Postges_volume
+
 
 services:
-        postgres1:
+        postgres:
                 image: postgres
                 container_name: Postgres_DB
                 restart:  always
@@ -16,5 +18,5 @@ services:
                 ports:
                         - 5432:5432
                 volumes:
-                        - .:/code
+                        - db_volume:/var/lib/postgresql/data
 
